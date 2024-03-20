@@ -1,0 +1,27 @@
+public class SenoTaylor {
+    public static void main(String[] args) {
+      
+        double angulo1 = 2;
+        double angulo2 = 1.57;
+
+        System.out.println("Seno de " + angulo1 + " radianes: " + calcularSeno(angulo1));
+        System.out.println("Seno de " + angulo2 + " radianes: " + calcularSeno(angulo2));
+    }
+
+    public static double calcularSeno(double angulo) {
+        double seno = 0;
+        double termino = angulo; 
+
+        int n = 1; 
+        double tolerancia = 0.0000000001;
+
+        while (Math.abs(termino) > tolerancia) {
+            seno += termino;
+
+            termino *= -angulo * angulo / ((2 * n) * (2 * n + 1));
+            n++;
+
+        }
+        return seno;
+    }
+}
